@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <demo.sollian.com.nestedscrolllayout.NestedScrollLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8888"
+            android:gravity="center_horizontal"
+            android:lines="10"
+            android:text="1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n"
+            android:textColor="#b55"
+            android:textSize="16dp" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#8ffc">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n"
+                    android:textColor="#5b5"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </demo.sollian.com.nestedscrolllayout.NestedScrollLayout>
+</LinearLayout>
