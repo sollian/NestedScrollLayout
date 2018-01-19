@@ -56,6 +56,7 @@ public class NestedScrollLayout2 extends FrameLayout {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
         if (getChildCount() != 2) {
             throw new RuntimeException("child count must be 2");
         }
@@ -64,8 +65,9 @@ public class NestedScrollLayout2 extends FrameLayout {
 
         hHead = vHead.getMeasuredHeight();
         scrollThreashold = hHead >> 2;
-        vHead.layout(left, top, right, top + hHead);
-        vBody.layout(left, top + hHead, right, bottom + hHead);
+        vBody.setTranslationY(hHead);
+//        vHead.layout(left, top, right, top + hHead);
+//        vBody.layout(left, top + hHead, right, bottom + hHead);
     }
 
 
@@ -156,7 +158,8 @@ public class NestedScrollLayout2 extends FrameLayout {
                         }
                         invalidate();
                     }
-                    handleTouchEvent = true;
+//                    handleTouchEvent = true;
+                    ev.setAction(MotionEvent.ACTION_CANCEL);
                 } else if (scrollState == SCROLL_DOWN) {
                     if (offsetY > 0) {
                         if (hHead - offsetY > scrollThreashold) {
@@ -167,7 +170,8 @@ public class NestedScrollLayout2 extends FrameLayout {
                         }
                         invalidate();
                     }
-                    handleTouchEvent = true;
+//                    handleTouchEvent = true;
+                    ev.setAction(MotionEvent.ACTION_CANCEL);
                 }
                 break;
             default:
