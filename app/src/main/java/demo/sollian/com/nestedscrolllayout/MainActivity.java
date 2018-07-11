@@ -20,4 +20,8 @@ public class MainActivity extends Activity {
     public void click2(View view) {
         startActivity(new Intent(this, NestedScrollActivity2.class));
     }
+
+    public void click3(View view) {
+        startActivity(new Intent(this, NestedScrollActivity3.class));
+    }
 }
