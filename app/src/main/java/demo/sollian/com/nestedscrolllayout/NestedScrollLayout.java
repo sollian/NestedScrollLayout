@@ -56,17 +56,26 @@ public class NestedScrollLayout extends FrameLayout implements NestedScrollingPa
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        if (vHead == null || vBody == null) {
-            if (getChildCount() != 2) {
-                throw new RuntimeException("child count must be 2");
-            }
-            vHead = getChildAt(0);
-            vBody = getChildAt(1);
+//        if (vHead == null || vBody == null) {
+//            if (getChildCount() != 2) {
+//                throw new RuntimeException("child count must be 2");
+//            }
+//            vHead = getChildAt(0);
+//            vBody = getChildAt(1);
+//        }
+//
+//        hHead = vHead.getMeasuredHeight();
+//        vHead.layout(0, 0, right-left, hHead);
+//        vBody.layout(0, hHead, right-left, bottom - top + hHead);
+        super.onLayout(changed, left, top, right, bottom);
+        if (getChildCount() != 2) {
+            throw new RuntimeException("child count must be 2");
         }
+        vHead = getChildAt(0);
+        vBody = getChildAt(1);
 
         hHead = vHead.getMeasuredHeight();
-        vHead.layout(left, top, right, top + hHead);
-        vBody.layout(left, top + hHead, right, bottom + hHead);
+        vBody.setTranslationY(hHead);
     }
 
     @Override

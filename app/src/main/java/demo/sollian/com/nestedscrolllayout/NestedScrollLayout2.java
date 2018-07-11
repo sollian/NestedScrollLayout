@@ -66,8 +66,6 @@ public class NestedScrollLayout2 extends FrameLayout {
         hHead = vHead.getMeasuredHeight();
         scrollThreashold = hHead >> 2;
         vBody.setTranslationY(hHead);
-//        vHead.layout(left, top, right, top + hHead);
-//        vBody.layout(left, top + hHead, right, bottom + hHead);
     }
 
 
